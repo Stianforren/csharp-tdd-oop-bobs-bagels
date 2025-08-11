@@ -14,8 +14,9 @@ namespace exercise.tests
         [Test]
         public void TestAdd()
         {
-            Basket basket = new Basket(3);
-            Bagel bagel = new Bagel("BGLO");
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3,inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
             basket.Add(bagel);
 
             Assert.That(basket.ProductList.Count == 1);
@@ -24,8 +25,9 @@ namespace exercise.tests
         [Test]
         public void TestRemove()
         {
-            Basket basket = new Basket(3);
-            Bagel bagel = new Bagel("BGLO");
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory); 
+            Bagel bagel = new Bagel("BGLO", inventory);
             basket.Add(bagel);
 
             basket.Remove(0);
@@ -36,10 +38,11 @@ namespace exercise.tests
         [Test]
         public void TestIsFull()
         {
-            Basket basket = new Basket(3);
-            Bagel bagel = new Bagel("BGLO");
-            Bagel bagel2 = new Bagel("BGLO");
-            Bagel bagel3 = new Bagel("BGLO");
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO",inventory);
+            Bagel bagel2 = new Bagel("BGLO",inventory);
+            Bagel bagel3 = new Bagel("BGLO",inventory);
 
             basket.Add(bagel);
             Assert.IsFalse(basket.IsFull());
@@ -52,7 +55,8 @@ namespace exercise.tests
         [Test]
         public void TestBasketSize()
         {
-            Basket basket = new Basket(3);
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
             Assert.That(basket.BasketSize == 3);
             basket.BasketSize = 6;
             Assert.That(basket.BasketSize == 6);
@@ -61,8 +65,9 @@ namespace exercise.tests
         [Test]
         public void TestItemInBasket()
         {
-            Basket basket = new Basket(3);
-            Bagel bagel = new Bagel("BGLO");
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
             basket.Add(bagel);
 
             Assert.IsTrue(basket.ItemInBasket("BGLO"));
@@ -71,10 +76,39 @@ namespace exercise.tests
         [Test]
         public void TestGetBagelCost()
         {
-            Basket basket = new Basket(3);
-            Bagel bagel = new Bagel("BGLO");
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
 
             Assert.That(basket.getBagelCost("BGLO") == 0.49f);
         }
+
+        [Test]
+        public void TestGetTotal()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+
+            basket.Add(bagel);
+            basket.Add(bagel2);
+
+            Assert.That(basket.getTotalCost() == 0.98f);
+        }
+
+        [Test]
+        public void TestAddFilling()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            bagel.addFilling("Cheese");
+            bagel.addFilling("Egg");
+            Assert.That(bagel.Fillings.Count == 2);
+
+        }
+
+
     }
 }

@@ -11,6 +11,6 @@ namespace exercise.main
         int SKU_ID { get; set; }
         string SKU_NAME { get; set; }
 
-        float cost { get; }
+        float Price { get; set; }
     }
 }

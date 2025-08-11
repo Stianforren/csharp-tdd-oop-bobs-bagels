@@ -11,10 +11,11 @@ namespace exercise.main
 
         private int _basketSize;
         public List<IProduct> ProductList = new List<IProduct>();
-        private Inventory inventory = new Inventory();
+        private Inventory _inventory;
 
-        public Basket(int basketSize)
+        public Basket(int basketSize, Inventory inventory)
         {
+            _inventory = inventory;
             _basketSize = basketSize;
         }
 
@@ -42,7 +43,12 @@ namespace exercise.main
 
         public float getBagelCost(string bagelSKU)
         {
-            return inventory.inventory[bagelSKU].Price;
+            return _inventory.inventory[bagelSKU].Price;
+        }
+
+        public float getTotalCost()
+        {
+            return ProductList.Sum(x => x.Price);
         }
     }
 }
