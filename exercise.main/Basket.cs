@@ -56,9 +56,9 @@ namespace exercise.main
             return _inventory.inventory[fillingSKU].Price;
         }
 
-        public bool? inInventory(string v)
+        public bool inInventory(string item)
         {
-            throw new NotImplementedException();
+            return _inventory.inventory.ContainsKey(item);
         }
     }
 }
