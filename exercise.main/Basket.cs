@@ -21,5 +21,10 @@ namespace exercise.main
         {
             ProductList.Add(product);
         }
+
+        public void Remove(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -18,7 +18,18 @@ namespace exercise.tests
             basket.Add(bagel);
 
             Assert.That(basket.ProductList.Count == 1);
+        }
 
+        [Test]
+        public void TestRemove()
+        {
+            Basket basket = new Basket(3);
+            Bagel bagel = new Bagel();
+            basket.Add(bagel);
+
+            basket.Remove(0);
+
+            Assert.That(basket.ProductList.Count == 0);
 
         }
     }
