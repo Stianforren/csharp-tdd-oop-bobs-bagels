@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exercise.main
+namespace exercise.main.Products
 {
 
     public class Bagel : IProduct
@@ -18,6 +18,8 @@ namespace exercise.main
             _NAME = name;
         }
         public int SKU_ID { get { return _SKU_ID; } set { _SKU_ID = value; } }
-        public string Name { get { return _NAME; } set { _NAME = value; } }
+        public string SKU_NAME { get { return _NAME; } set { _NAME = value; } }
+
+        public float cost { get => throw new NotImplementedException();}
     }
 }

@@ -37,7 +37,12 @@ namespace exercise.main
 
         public bool ItemInBasket(string type)
         {
-            return ProductList.Any(x => x.Name == type);
+            return ProductList.Any(x => x.SKU_NAME == type);
+        }
+
+        public float getBagelCost(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

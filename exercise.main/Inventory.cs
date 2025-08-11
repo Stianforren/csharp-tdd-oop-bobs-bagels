@@ -8,17 +8,15 @@ namespace exercise.main
 {
     public class Inventory
     {
-        public Dictionary<string, int> toSkuId = new Dictionary<string, int>();
+        public Dictionary<string, InvItem> inventory = new Dictionary<string, InvItem>();
 
 
         public Inventory()
         {
-            toSkuId.Add("BGLO", 0);
-            toSkuId.Add("BGLP", 1);
-            toSkuId.Add("BGLE", 2);
-            toSkuId.Add("BGLS", 3);
+            inventory.Add("BGLO", new InvItem(0, 0.49f));
+            inventory.Add("BGLP", new InvItem(1, 0.39f));
+            inventory.Add("BGLE", new InvItem(2, 0.49f));
+            inventory.Add("BGLS", new InvItem(3, 0.49f));
         }
-
-
     }
 }

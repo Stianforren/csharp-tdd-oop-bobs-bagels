@@ -1,4 +1,5 @@
 ﻿using exercise.main;
+using exercise.main.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,15 @@ namespace exercise.tests
             basket.Add(bagel);
 
             Assert.IsTrue(basket.ItemInBasket("BGLO"));
+        }
+
+        [Test]
+        public void TestGetBagelCost()
+        {
+            Basket basket = new Basket(3);
+            Bagel bagel = new Bagel("BGLO");
+
+            Assert.That(basket.getBagelCost("BGLO") == 0.49f);
         }
     }
 }
