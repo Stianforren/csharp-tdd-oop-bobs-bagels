@@ -24,9 +24,9 @@ namespace exercise.main
             ProductList.Add(product);
         }
 
-        public void Remove(int id)
+        public void Remove(int placeInList)
         {
-            ProductList.RemoveAt(id);
+            ProductList.RemoveAt(placeInList);
         }
 
         public bool IsFull()
@@ -53,12 +53,12 @@ namespace exercise.main
 
         public float getFillingCost(string fillingSKU)
         {
-            return _inventory.inventory[fillingSKU].Price;
+            return _inventory.getFillingCost(fillingSKU);
         }
 
         public bool inInventory(string item)
         {
-            return _inventory.inventory.ContainsKey(item);
+            return _inventory.inInventory(item);
         }
     }
 }

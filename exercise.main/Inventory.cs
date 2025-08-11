@@ -25,5 +25,15 @@ namespace exercise.main
             inventory.Add("FILH", new InvItem(9, 0.12f));
 
         }
+
+        public float getFillingCost(string fillingSKU )
+        {
+            return inventory[fillingSKU].Price;
+        }
+
+        public bool inInventory(string SKU)
+        {
+            return inventory.ContainsKey(SKU);
+        }
     }
 }
