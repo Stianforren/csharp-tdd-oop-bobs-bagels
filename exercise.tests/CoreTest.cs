@@ -14,7 +14,7 @@ namespace exercise.tests
         public void TestAdd()
         {
             Basket basket = new Basket(3);
-            IProduct bagel = new Bagel();
+            Bagel bagel = new Bagel();
             basket.Add(bagel);
 
             Assert.That(basket.ProductList.Count == 1);

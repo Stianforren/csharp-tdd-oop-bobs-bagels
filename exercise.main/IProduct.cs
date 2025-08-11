@@ -8,6 +8,5 @@ namespace exercise.main
 {
     public interface IProduct
     {
-
     }
 }

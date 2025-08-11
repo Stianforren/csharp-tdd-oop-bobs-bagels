@@ -10,17 +10,16 @@ namespace exercise.main
     {
 
         private int _basketSize;
-        public List<IProduct> ProductList { get; set; }
+        public List<IProduct> ProductList = new List<IProduct>();
 
         public Basket(int basketSize)
         {
             _basketSize = basketSize;
         }
 
-
         public void Add(IProduct product)
         {
-
+            ProductList.Add(product);
         }
     }
 }
