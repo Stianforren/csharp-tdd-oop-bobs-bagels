@@ -40,9 +40,9 @@ namespace exercise.main
             return ProductList.Any(x => x.SKU_NAME == type);
         }
 
-        public float getBagelCost(string v)
+        public float getBagelCost(string bagelSKU)
         {
-            throw new NotImplementedException();
+            return inventory.inventory[bagelSKU].Price;
         }
     }
 }
