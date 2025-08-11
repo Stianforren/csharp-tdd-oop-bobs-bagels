@@ -22,9 +22,9 @@ namespace exercise.main
             ProductList.Add(product);
         }
 
-        public void Remove(int v)
+        public void Remove(int id)
         {
-            throw new NotImplementedException();
+            ProductList.RemoveAt(id);
         }
     }
 }
