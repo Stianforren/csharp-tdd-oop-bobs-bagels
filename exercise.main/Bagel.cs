@@ -10,7 +10,12 @@ namespace exercise.main
 
     public class Bagel : IProduct
     {
-        private int _id;
-        public int Id { get { return _id; } set { _id = value; } }
+        private int _SKU_ID;
+        public int SKU_ID { get { return _SKU_ID; } set { _SKU_ID = value; } }
+
+        public Bagel(string name)
+        {
+            
+        }
     }
 }

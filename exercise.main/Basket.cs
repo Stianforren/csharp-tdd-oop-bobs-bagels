@@ -11,6 +11,7 @@ namespace exercise.main
 
         private int _basketSize;
         public List<IProduct> ProductList = new List<IProduct>();
+        private Inventory inventory = new Inventory();
 
         public Basket(int basketSize)
         {
@@ -33,5 +34,10 @@ namespace exercise.main
         }
 
         public int BasketSize { get { return _basketSize; } set { _basketSize = value; } }
+
+        public bool ItemInBasket(int sku_id)
+        {
+            return ProductList.Any(x => x.SKU_ID == sku_id);
+        }
     }
 }

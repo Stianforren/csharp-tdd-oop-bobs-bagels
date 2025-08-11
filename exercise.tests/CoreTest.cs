@@ -56,5 +56,12 @@ namespace exercise.tests
             basket.BasketSize = 6;
             Assert.That(basket.BasketSize == 6);
         }
+
+        [Test]
+        public void TestItemInBasket()
+        {
+            Basket basket = new Basket(3);
+            Bagel bagel = new Bagel();
+        }
     }
 }

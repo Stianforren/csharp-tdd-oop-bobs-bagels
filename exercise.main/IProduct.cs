@@ -8,6 +8,6 @@ namespace exercise.main
 {
     public interface IProduct
     {
-        int Id { get; set; }
+        int SKU_ID { get; set; }
     }
 }
