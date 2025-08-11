@@ -14,7 +14,7 @@ namespace exercise.tests
         public void TestAdd()
         {
             Basket basket = new Basket(3);
-            Bagel bagel = new Bagel();
+            Bagel bagel = new Bagel("BGLO");
             basket.Add(bagel);
 
             Assert.That(basket.ProductList.Count == 1);
@@ -24,7 +24,7 @@ namespace exercise.tests
         public void TestRemove()
         {
             Basket basket = new Basket(3);
-            Bagel bagel = new Bagel();
+            Bagel bagel = new Bagel("BGLO");
             basket.Add(bagel);
 
             basket.Remove(0);
@@ -36,9 +36,9 @@ namespace exercise.tests
         public void TestIsFull()
         {
             Basket basket = new Basket(3);
-            Bagel bagel = new Bagel();
-            Bagel bagel2 = new Bagel();
-            Bagel bagel3 = new Bagel();
+            Bagel bagel = new Bagel("BGLO");
+            Bagel bagel2 = new Bagel("BGLO");
+            Bagel bagel3 = new Bagel("BGLO");
 
             basket.Add(bagel);
             Assert.IsFalse(basket.IsFull());
@@ -61,7 +61,10 @@ namespace exercise.tests
         public void TestItemInBasket()
         {
             Basket basket = new Basket(3);
-            Bagel bagel = new Bagel();
+            Bagel bagel = new Bagel("BGLO");
+            basket.Add(bagel);
+
+            Assert.IsTrue(basket.ItemInBasket("BGLO"));
         }
     }
 }

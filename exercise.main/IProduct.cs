@@ -9,5 +9,6 @@ namespace exercise.main
     public interface IProduct
     {
         int SKU_ID { get; set; }
+        string Name { get; set; }
     }
 }
