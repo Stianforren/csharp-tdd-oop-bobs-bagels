@@ -11,12 +11,12 @@ namespace exercise.main.Products
         private string _name;
         private float _cost;
 
-        public Filling(string name)
-        {
+        public Filling(string name, Inventory inventory) { 
             _name = name;
+            _cost = inventory.inventory[name].Price;
         }
         public int SKU_ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string SKU_NAME { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float Price { get { return _cost; } set =>  new NotImplementedException(); }
     }
 }

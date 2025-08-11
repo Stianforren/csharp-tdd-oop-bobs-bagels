@@ -50,5 +50,10 @@ namespace exercise.main
         {
             return ProductList.Sum(x => x.Price);
         }
+
+        public float getFillingCost(string fillingSKU)
+        {
+            return _inventory.inventory[fillingSKU].Price;
+        }
     }
 }

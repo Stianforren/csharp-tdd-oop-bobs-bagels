@@ -78,7 +78,7 @@ namespace exercise.tests
         {
             Inventory inventory = new Inventory();
             Basket basket = new Basket(3, inventory);
-            Bagel bagel = new Bagel("BGLO", inventory);
+            //Bagel bagel = new Bagel("BGLO", inventory);
 
             Assert.That(basket.getBagelCost("BGLO") == 0.49f);
         }
@@ -103,10 +103,18 @@ namespace exercise.tests
             Inventory inventory = new Inventory();
             Basket basket = new Basket(3, inventory);
             Bagel bagel = new Bagel("BGLO", inventory);
-            bagel.addFilling(new Filling("Cheese"));
-            bagel.addFilling(new Filling("Egg"));
+            bagel.addFilling(new Filling("FILE", inventory));
+            bagel.addFilling(new Filling("FILB", inventory));
             Assert.That(bagel.Fillings.Count == 2);
+        }
 
+        [Test]
+        public void TestGetCostOfFilling()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+
+            Assert.That(basket.getFillingCost("FILE") == 0.12f);
         }
 
 
