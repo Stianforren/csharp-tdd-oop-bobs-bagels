@@ -117,6 +117,16 @@ namespace exercise.tests
             Assert.That(basket.getFillingCost("FILE") == 0.12f);
         }
 
+        [Test]
+        public void TestInInventory()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+
+            Assert.IsTrue(basket.inInventory("BGLO"));
+            Assert.IsFalse(basket.inInventory("egg"));
+        }
+
 
     }
 }

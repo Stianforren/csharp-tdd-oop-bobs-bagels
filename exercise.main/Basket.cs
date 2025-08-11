@@ -55,5 +55,10 @@ namespace exercise.main
         {
             return _inventory.inventory[fillingSKU].Price;
         }
+
+        public bool? inInventory(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
