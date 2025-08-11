@@ -30,6 +30,21 @@ namespace exercise.tests
             basket.Remove(0);
 
             Assert.That(basket.ProductList.Count == 0);
+        }
+
+        [Test]
+        public void TestIsFull()
+        {
+            Basket basket = new Basket(3);
+            Bagel bagel = new Bagel();
+            Bagel bagel2 = new Bagel();
+            Bagel bagel3 = new Bagel();
+
+            basket.Add(bagel);
+            Assert.IsFalse(basket.IsFull());
+            basket.Add(bagel2);
+            basket.Add(bagel3);
+            Assert.IsTrue(basket.IsFull());
 
         }
     }

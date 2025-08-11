@@ -26,5 +26,10 @@ namespace exercise.main
         {
             ProductList.RemoveAt(id);
         }
+
+        public bool IsFull()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
