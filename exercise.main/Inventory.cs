@@ -23,6 +23,10 @@ namespace exercise.main
             inventory.Add("FILX", new InvItem(7, 0.12f));
             inventory.Add("FILS", new InvItem(8, 0.12f));
             inventory.Add("FILH", new InvItem(9, 0.12f));
+            inventory.Add("COFB", new InvItem(10, 0.12f));
+            inventory.Add("COFW", new InvItem(11, 0.12f));
+            inventory.Add("COFC", new InvItem(12, 0.12f));
+            inventory.Add("COFL", new InvItem(13, 0.12f));
 
         }
 
