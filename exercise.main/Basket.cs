@@ -29,7 +29,7 @@ namespace exercise.main
 
         public bool IsFull()
         {
-            throw new NotImplementedException();
+            return ProductList.Count < _basketSize ? false : true;
         }
     }
 }
