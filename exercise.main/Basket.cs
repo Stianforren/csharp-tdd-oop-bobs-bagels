@@ -31,5 +31,7 @@ namespace exercise.main
         {
             return ProductList.Count < _basketSize ? false : true;
         }
+
+        public int BasketSize { get { return _basketSize; } set { _basketSize = value; } }
     }
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    internal class BagelShop
+    public class BagelShop
     {
+        public int _basketSize { get; set; }
+
     }
 }

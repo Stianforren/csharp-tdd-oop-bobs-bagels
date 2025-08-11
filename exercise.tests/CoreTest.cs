@@ -47,5 +47,14 @@ namespace exercise.tests
             Assert.IsTrue(basket.IsFull());
 
         }
+
+        [Test]
+        public void TestBasketSize()
+        {
+            Basket basket = new Basket(3);
+            Assert.That(basket.BasketSize == 3);
+            basket.BasketSize = 6;
+            Assert.That(basket.BasketSize == 6);
+        }
     }
 }
