@@ -26,9 +26,9 @@ namespace exercise.main.Products
         public float Price { get { return _cost; } set { _cost = value; } }
         public List<Filling> Fillings { get { return fillings; } }
 
-        public void addFilling(string v)
+        public void addFilling(Filling filling)
         {
-            throw new NotImplementedException();
+            fillings.Add(filling);
         }
     }
 }

@@ -103,8 +103,8 @@ namespace exercise.tests
             Inventory inventory = new Inventory();
             Basket basket = new Basket(3, inventory);
             Bagel bagel = new Bagel("BGLO", inventory);
-            bagel.addFilling("Cheese");
-            bagel.addFilling("Egg");
+            bagel.addFilling(new Filling("Cheese"));
+            bagel.addFilling(new Filling("Egg"));
             Assert.That(bagel.Fillings.Count == 2);
 
         }
