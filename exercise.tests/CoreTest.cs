@@ -198,9 +198,83 @@ namespace exercise.tests
             
 
             Assert.That(basket.getTotalPriceForAllFillings() == 0.36f);
-
-
         }
 
+        [Test]
+        public void TestCheckIfBundleDealAvailable()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(15, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+            basket.Add(bagel);
+            basket.Add(bagel);
+            for (int i = 0; i < 10; i++)
+            {
+                basket.Add(bagel2);
+            }
+
+            Dictionary<string, int> itemCount = basket.getItemCount();
+
+            Assert.IsTrue(basket.checkIfBundleDealAvaiable(itemCount));
+            Assert.IsFalse(basket.checkIfCoffeeDealAvailable(itemCount));
+        }
+
+        [Test]
+        public void TestCheckIfCoffeeDealAvailable()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(15, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+            basket.Add(bagel);
+            basket.Add(bagel);
+            basket.Add(new Coffee("COFB", inventory));
+
+            Dictionary<string, int> itemCount = basket.getItemCount();
+
+            Assert.IsFalse(basket.checkIfBundleDealAvaiable(itemCount));
+            Assert.IsTrue(basket.checkIfCoffeeDealAvailable(itemCount));
+        }
+
+        [Test]
+        public void TestCalculateDiscount()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(120, inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+            for (int i = 0; i < 20; i++)
+            {
+                basket.Add(bagel2);
+            }
+
+
+            Assert.That(basket.caluculateDiscount() == 7.46f);
+
+            
+        }
+
+        [Test]
+        public void TestGetToalCostOfBagels()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(15, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+            bagel.addFilling(new Filling("FILE", inventory));
+            bagel.addFilling(new Filling("FILE", inventory));
+            bagel2.addFilling(new Filling("FILE", inventory));
+            basket.Add(bagel);
+            basket.Add(bagel);
+            basket.Add(new Coffee("COFB", inventory));
+            for (int i = 0; i < 3; i++)
+            {
+                basket.Add(bagel2);
+            }
+
+
+            Assert.That(basket.getTotalCostForBagels() == 2.45f);
+
+        }
         }
 }

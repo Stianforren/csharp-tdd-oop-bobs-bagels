@@ -1,20 +1,19 @@
 ﻿using exercise.main;
 using exercise.main.Products;
 
-Inventory inventory = new Inventory();
-Basket basket = new Basket(3, inventory);
 
+Inventory inventory = new Inventory();
+Basket basket = new Basket(20, inventory);
 Bagel bagel = new Bagel("BGLO", inventory);
 Bagel bagel2 = new Bagel("BGLE", inventory);
-Bagel bagel3 = new Bagel("BGLO", inventory);
+//basket.Add(bagel);
+//basket.Add(bagel);
+for (int i = 0; i < 20; i++)
+{
+    basket.Add(bagel2);
+}
 
-bagel.addFilling(new Filling("FILE", inventory));
-bagel.addFilling(new Filling("FILE", inventory));
-bagel2.addFilling(new Filling("FILB", inventory));
 
-basket.Add(bagel);
-basket.Add(bagel2);
-basket.Add(bagel3);
 
-basket.getTotalPriceForAllFillings();
-
+float total = basket.caluculateDiscount();
+Console.WriteLine(total);

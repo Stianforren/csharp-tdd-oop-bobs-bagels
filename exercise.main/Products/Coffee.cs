@@ -18,7 +18,7 @@ namespace exercise.main.Products
             _price = inventory.inventory[name].Price;
             _type = inventory.inventory[name].Type;
         }
-        public string SKU_NAME { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string SKU_NAME { get { return _name; } set => throw new NotImplementedException(); }
         public float Price { get { return _price; } set { _price = value; } }
 
         public Type type { get { return _type; } }
