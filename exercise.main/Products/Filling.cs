@@ -18,5 +18,10 @@ namespace exercise.main.Products
         }
         public string SKU_NAME { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public float Price { get { return _cost; } set =>  new NotImplementedException(); }
+
+        public float getTotalPrice()
+        {
+            return _cost;
+        }
     }
 }

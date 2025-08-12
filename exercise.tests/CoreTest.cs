@@ -98,6 +98,21 @@ namespace exercise.tests
         }
 
         [Test]
+        public void TestGetTotalWithAddedFillings()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLE", inventory);
+
+            basket.Add(bagel);
+            bagel.addFilling(new Filling("FILE", inventory));
+            basket.Add(bagel2);
+
+            Assert.That(basket.getTotalCost() == 1.10f);
+        }
+
+        [Test]
         public void TestAddFilling()
         {
             Inventory inventory = new Inventory();
@@ -124,6 +139,22 @@ namespace exercise.tests
 
             Assert.IsTrue(inventory.inInventory("BGLO"));
             Assert.IsFalse(inventory.inInventory("egg"));
+        }
+
+        [Test]
+        public void TestcostForFillings()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(3, inventory);
+
+            Bagel bagel = new Bagel("BGLO", inventory);
+
+            bagel.addFilling(new Filling("FILE", inventory));
+            bagel.addFilling(new Filling("FILE", inventory));
+
+            Assert.That(bagel.costForFillings() == 0.24f);
+
+
         }
 
 

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    public interface IProduct
+    public enum Type
     {
-        string SKU_NAME { get; set; }
-
-        float Price { get; set; }
-
-        float getTotalPrice();
+        Bagel,
+        Coffee,
+        Filling
     }
 }

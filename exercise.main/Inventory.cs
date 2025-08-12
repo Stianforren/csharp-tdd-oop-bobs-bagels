@@ -13,20 +13,20 @@ namespace exercise.main
 
         public Inventory()
         {
-            inventory.Add("BGLO", new InvItem(0, 0.49f));
-            inventory.Add("BGLP", new InvItem(1, 0.39f));
-            inventory.Add("BGLE", new InvItem(2, 0.49f));
-            inventory.Add("BGLS", new InvItem(3, 0.49f));
-            inventory.Add("FILB", new InvItem(4, 0.12f));
-            inventory.Add("FILE", new InvItem(5, 0.12f));
-            inventory.Add("FILC", new InvItem(6, 0.12f));
-            inventory.Add("FILX", new InvItem(7, 0.12f));
-            inventory.Add("FILS", new InvItem(8, 0.12f));
-            inventory.Add("FILH", new InvItem(9, 0.12f));
-            inventory.Add("COFB", new InvItem(10, 0.12f));
-            inventory.Add("COFW", new InvItem(11, 0.12f));
-            inventory.Add("COFC", new InvItem(12, 0.12f));
-            inventory.Add("COFL", new InvItem(13, 0.12f));
+            inventory.Add("BGLO", new InvItem(0, 0.49f, Type.Bagel));
+            inventory.Add("BGLP", new InvItem(1, 0.39f, Type.Bagel));
+            inventory.Add("BGLE", new InvItem(2, 0.49f, Type.Bagel));
+            inventory.Add("BGLS", new InvItem(3, 0.49f, Type.Bagel));
+            inventory.Add("FILB", new InvItem(4, 0.12f, Type.Filling));
+            inventory.Add("FILE", new InvItem(5, 0.12f, Type.Filling));
+            inventory.Add("FILC", new InvItem(6, 0.12f, Type.Filling));
+            inventory.Add("FILX", new InvItem(7, 0.12f, Type.Filling));
+            inventory.Add("FILS", new InvItem(8, 0.12f, Type.Filling));
+            inventory.Add("FILH", new InvItem(9, 0.12f, Type.Filling));
+            inventory.Add("COFB", new InvItem(10, 0.12f, Type.Coffee));
+            inventory.Add("COFW", new InvItem(11, 0.12f, Type.Coffee));
+            inventory.Add("COFC", new InvItem(12, 0.12f, Type.Coffee));
+            inventory.Add("COFL", new InvItem(13, 0.12f, Type.Coffee));
 
         }
 

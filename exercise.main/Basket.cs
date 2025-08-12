@@ -48,7 +48,7 @@ namespace exercise.main
 
         public float getTotalCost()
         {
-            return ProductList.Sum(x => x.Price);
+            return ProductList.Sum(x => x.getTotalPrice());
         }
 
         public float getFillingCost(string fillingSKU)

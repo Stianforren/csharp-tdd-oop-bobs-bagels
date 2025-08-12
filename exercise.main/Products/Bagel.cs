@@ -28,5 +28,13 @@ namespace exercise.main.Products
         {
             fillings.Add(filling);
         }
+        public float costForFillings()
+        {
+            return fillings.Sum(x => x.Price);
+        }
+        public float getTotalPrice()
+        {
+            return fillings.Sum(x => x.getTotalPrice()) + _cost;
+        }
     }
 }
