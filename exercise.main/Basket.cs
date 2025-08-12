@@ -164,8 +164,8 @@ namespace exercise.main
 
         public bool checkIfCoffeeDealAvailable(Dictionary<string, int> dict)
         {
-            return (ProductList.Any(x => _inventory.inventory[x.SKU_NAME].Type == Type.Bagel)
-                && ProductList.Any(y => _inventory.inventory[y.SKU_NAME].Type == Type.Coffee));
+            return (dict.Any(x => _inventory.inventory[x.Key].Type == Type.Bagel)
+                && dict.Any(y => _inventory.inventory[y.Key].Type == Type.Coffee));
         }
 
         public float getPriceForItemWithBundleDiscount(string bagel, int amount)
@@ -191,6 +191,26 @@ namespace exercise.main
 
             }
             return twelveBundle * 3.99f + sixBundle * 2.49f + singles * _inventory.inventory[bagel].Price;
+        }
+
+
+        public string BuildReceipt()
+        {
+            StringBuilder receipt = new StringBuilder();
+            DateTime dateTime = DateTime.Now;
+            Dictionary<string, int> itemCount = getItemCount();
+            string test = "longer";
+
+            receipt.AppendLine("***** Bob's Bagels ******");
+            receipt.AppendLine($"   {dateTime.ToString()}");
+            receipt.AppendLine("--------------------------");
+            foreach (var item in itemCount)
+            {
+                receipt.AppendLine($"{item.Key,-15}{item.Value,-7}{_inventory.inventory[item.Key].Price * item.Value,2}");
+            }
+            receipt.AppendLine("--------------------------");
+            receipt.AppendLine($"Total:{Math.Round(getTotalCost(),2),20}");
+            return receipt.ToString();
         }
 
     }
