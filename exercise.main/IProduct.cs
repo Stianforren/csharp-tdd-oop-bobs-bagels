@@ -12,6 +12,8 @@ namespace exercise.main
 
         float Price { get; set; }
 
+        Type type { get; }
+
         float getTotalPrice();
     }
 }

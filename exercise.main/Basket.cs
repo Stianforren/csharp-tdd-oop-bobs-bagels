@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exercise.main.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,10 @@ namespace exercise.main
 
         public void Add(IProduct product)
         {
-            ProductList.Add(product);
+            if (!IsFull())
+            {
+                ProductList.Add(product);
+            }
         }
 
         public void Remove(int placeInList)
@@ -51,6 +55,11 @@ namespace exercise.main
             return ProductList.Sum(x => x.getTotalPrice());
         }
 
+        public float getTotalPriceForAllFillings()
+        {
+            return (float)Math.Round(ProductList.OfType<Bagel>().Sum(x => x.costForFillings()),2);
+        }
+
         public float getFillingCost(string fillingSKU)
         {
             return _inventory.getFillingCost(fillingSKU);
@@ -59,6 +68,14 @@ namespace exercise.main
         public bool inInventory(string item)
         {
             return _inventory.inInventory(item);
+        }
+        
+        public Dictionary<string, int> getItemCount()
+        {
+            Dictionary<string, int> itemCount = new Dictionary<string, int>();
+            itemCount = ProductList.GroupBy(x => x).ToDictionary(g => g.Key.SKU_NAME, g =>  g.Count());
+
+            return itemCount;
         }
     }
 }

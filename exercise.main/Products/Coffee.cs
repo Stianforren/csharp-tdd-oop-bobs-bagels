@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace exercise.main.Products
 {
-    public class Filling : IProduct
+    public class Coffee : IProduct
     {
         private string _name;
-        private float _cost;
+        private float _price;
         private Type _type;
 
-        public Filling(string name, Inventory inventory)
+        public Coffee(string name, Inventory inventory)
         {
             _name = name;
-            _cost = inventory.inventory[name].Price;
+            _price = inventory.inventory[name].Price;
             _type = inventory.inventory[name].Type;
         }
         public string SKU_NAME { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float Price { get { return _cost; } set =>  new NotImplementedException(); }
+        public float Price { get { return _price; } set { _price = value; } }
 
         public Type type { get { return _type; } }
 
         public float getTotalPrice()
         {
-            return _cost;
+            return _price;
         }
     }
 }
