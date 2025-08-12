@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -86,18 +87,67 @@ namespace exercise.main
         public float caluculateDiscount()
         {
             Dictionary<string, int> itemCount = getItemCount();
-            float discountPice = 0;
+            float discountPrice = 0;
             if (checkIfBundleDealAvaiable(itemCount))
             {
                 foreach (var item in itemCount)
                 {
                     if (item.Value >= 6 && _inventory.inventory[item.Key].Type == Type.Bagel)
                     {
-                        discountPice += getPriceForItemWithBundleDiscount(item.Key, item.Value);
+                        discountPrice += getPriceForItemWithBundleDiscount(item.Key, item.Value);
+                    }
+                    else
+                    {
+                        discountPrice += item.Value * _inventory.inventory[item.Key].Price;
+                    }
+                }
+                return discountPrice;
+            } 
+            else if (checkIfCoffeeDealAvailable(itemCount))
+            {
+                List<string> coffeeList = TypeList(itemCount, Type.Coffee);
+                List<string> bagelList = TypeList(itemCount, Type.Bagel);
+                int numberOfCoffee = coffeeList.Count;
+                int numberOfBagel = bagelList.Count;
+
+                for (int i = 0; i < Math.Min(numberOfCoffee, numberOfBagel); i++)
+                {
+                    itemCount[coffeeList[i]] -= 1;
+                    itemCount[bagelList[i]] -= 1;
+                    discountPrice += 1.25f;
+                }
+                foreach (var item in itemCount)
+                {
+                    
+                    discountPrice += item.Value * _inventory.inventory[item.Key].Price;
+                }
+                return discountPrice;
+            }
+            else
+            {
+                foreach (var item in itemCount)
+                {
+
+                    discountPrice += item.Value * _inventory.inventory[item.Key].Price;
+                }
+                return discountPrice;
+            }
+        }
+
+        public List<string> TypeList(Dictionary<string, int> dict, Type type)
+        {
+            List<string> typeList = new List<string>();
+            foreach (var item in dict)
+            {
+                if (_inventory.inventory[item.Key].Type == type)
+                {
+                    for (int i = 0; i < item.Value; i++)
+                    {
+                        typeList.Add(item.Key);
                     }
                 }
             }
-            return discountPice;
+            return typeList;
         }
 
         public bool checkIfBundleDealAvaiable(Dictionary<string, int> dict)
@@ -134,10 +184,10 @@ namespace exercise.main
                     singles = singles%6;
                 }
             }
-            else if (amount > 6)
+            else if (amount >= 6)
             {
-                sixBundle = singles / 6;
-                singles = singles % 6;
+                sixBundle = amount / 6;
+                singles = amount % 6;
 
             }
             return twelveBundle * 3.99f + sixBundle * 2.49f + singles * _inventory.inventory[bagel].Price;

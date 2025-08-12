@@ -15,7 +15,7 @@ namespace exercise.tests
         public void TestAdd()
         {
             Inventory inventory = new Inventory();
-            Basket basket = new Basket(3,inventory);
+            Basket basket = new Basket(3, inventory);
             Bagel bagel = new Bagel("BGLO", inventory);
             basket.Add(bagel);
 
@@ -26,7 +26,7 @@ namespace exercise.tests
         public void TestRemove()
         {
             Inventory inventory = new Inventory();
-            Basket basket = new Basket(3, inventory); 
+            Basket basket = new Basket(3, inventory);
             Bagel bagel = new Bagel("BGLO", inventory);
             basket.Add(bagel);
 
@@ -40,9 +40,9 @@ namespace exercise.tests
         {
             Inventory inventory = new Inventory();
             Basket basket = new Basket(3, inventory);
-            Bagel bagel = new Bagel("BGLO",inventory);
-            Bagel bagel2 = new Bagel("BGLO",inventory);
-            Bagel bagel3 = new Bagel("BGLO",inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLO", inventory);
+            Bagel bagel3 = new Bagel("BGLO", inventory);
 
             basket.Add(bagel);
             Assert.IsFalse(basket.IsFull());
@@ -195,7 +195,7 @@ namespace exercise.tests
             basket.Add(bagel);
             basket.Add(bagel2);
             basket.Add(bagel3);
-            
+
 
             Assert.That(basket.getTotalPriceForAllFillings() == 0.36f);
         }
@@ -251,7 +251,7 @@ namespace exercise.tests
 
             Assert.That(basket.caluculateDiscount() == 7.46f);
 
-            
+
         }
 
         [Test]
@@ -272,9 +272,69 @@ namespace exercise.tests
                 basket.Add(bagel2);
             }
 
-
             Assert.That(basket.getTotalCostForBagels() == 2.45f);
 
         }
+
+        [Test]
+        public void TestDiscounts1()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(30, inventory);
+            Bagel bagel = new Bagel("BGLO", inventory);
+            Bagel bagel2 = new Bagel("BGLP", inventory);
+            Bagel bagel3 = new Bagel("BGLE", inventory);
+            Coffee coffee = new Coffee("COFB", inventory);
+            basket.Add(bagel);
+            basket.Add(bagel);
+            for (int i = 0; i < 12; i++)
+            {
+                basket.Add(bagel2);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                basket.Add(bagel3);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                basket.Add(coffee);
+            }
+
+            Assert.That(basket.caluculateDiscount() == 10.43f);
         }
+        [Test]
+        public void TestDiscounts2()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(30, inventory);
+            Bagel bagel = new Bagel("BGLP", inventory);
+            for (int i = 0; i < 16; i++)
+            {
+                basket.Add(bagel);
+            }
+
+
+            Assert.That(basket.caluculateDiscount() == 5.55f);
+        }
+
+        [Test]
+        public void TestDiscounts3()
+        {
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(30, inventory);
+            Bagel bagel = new Bagel("BGLP", inventory);
+            Coffee coffee = new Coffee("COFB", inventory);
+            for (int i = 0; i < 4; i++)
+            {
+                basket.Add(bagel);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                basket.Add(coffee);
+            }
+
+            Assert.That(basket.caluculateDiscount() == 3.28f);
+
+        }
+    }
 }

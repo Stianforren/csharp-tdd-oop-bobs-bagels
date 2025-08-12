@@ -23,10 +23,10 @@ namespace exercise.main
             inventory.Add("FILX", new InvItem(7, 0.12f, Type.Filling));
             inventory.Add("FILS", new InvItem(8, 0.12f, Type.Filling));
             inventory.Add("FILH", new InvItem(9, 0.12f, Type.Filling));
-            inventory.Add("COFB", new InvItem(10, 0.12f, Type.Coffee));
-            inventory.Add("COFW", new InvItem(11, 0.12f, Type.Coffee));
-            inventory.Add("COFC", new InvItem(12, 0.12f, Type.Coffee));
-            inventory.Add("COFL", new InvItem(13, 0.12f, Type.Coffee));
+            inventory.Add("COFB", new InvItem(10, 0.99f, Type.Coffee));
+            inventory.Add("COFW", new InvItem(11, 1.19f, Type.Coffee));
+            inventory.Add("COFC", new InvItem(12, 1.29f, Type.Coffee));
+            inventory.Add("COFL", new InvItem(13, 1.29f, Type.Coffee));
 
         }
 

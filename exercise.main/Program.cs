@@ -3,17 +3,15 @@ using exercise.main.Products;
 
 
 Inventory inventory = new Inventory();
-Basket basket = new Basket(20, inventory);
-Bagel bagel = new Bagel("BGLO", inventory);
-Bagel bagel2 = new Bagel("BGLE", inventory);
-//basket.Add(bagel);
-//basket.Add(bagel);
-for (int i = 0; i < 20; i++)
+Basket basket = new Basket(30, inventory);
+Bagel bagel = new Bagel("BGLP", inventory);
+Coffee coffee = new Coffee("COFB", inventory);
+for (int i = 0; i < 4; i++)
 {
-    basket.Add(bagel2);
+    basket.Add(bagel);
 }
-
-
-
-float total = basket.caluculateDiscount();
-Console.WriteLine(total);
+for (int i = 0; i < 2; i++)
+{
+    basket.Add(coffee);
+}
+Console.WriteLine(basket.caluculateDiscount());
