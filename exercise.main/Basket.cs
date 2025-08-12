@@ -1,6 +1,7 @@
 ﻿using exercise.main.Products;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -206,7 +207,7 @@ namespace exercise.main
             receipt.AppendLine("--------------------------");
             foreach (var item in itemCount)
             {
-                receipt.AppendLine($"{item.Key,-15}{item.Value,-7}{_inventory.inventory[item.Key].Price * item.Value,2}");
+                receipt.AppendLine($"{item.Key,-15}{item.Value,-6}£{_inventory.inventory[item.Key].Price * item.Value}");
             }
             receipt.AppendLine("--------------------------");
             receipt.AppendLine($"Total:{Math.Round(getTotalCost(),2),20}");
