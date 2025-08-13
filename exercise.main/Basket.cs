@@ -200,7 +200,6 @@ namespace exercise.main
             StringBuilder receipt = new StringBuilder();
             DateTime dateTime = DateTime.Now;
             Dictionary<string, int> itemCount = getItemCount();
-            string test = "longer";
 
             receipt.AppendLine("***** Bob's Bagels ******");
             receipt.AppendLine($"   {dateTime.ToString()}");
