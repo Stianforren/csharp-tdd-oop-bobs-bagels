@@ -10,3 +10,30 @@
 |Bagel.cs|AddFilling(IProduct filling)| want to add filling| wanted filling added|
 |Inventory.cs|getFillingCost(string fillingSKU)| want to see price of fillings| returns list of fillings with price|
 |Inventory.cs|inInventory(string item)|only want to sell items in inventory|returns true if item in inventory, false otherwise|
+|Basket.cs|CalculateDiscount()|so if items in basket are discountable, give the discount| Total price deiscounted|
+|basket.cs|checkIfBundleDealAvailable()|so i can get discounted price when buying in bulk| returns true if bulk criteria is met|
+|basket.cs|checkOfCoffeeDealAvailable()|so i can get dicounted price when buying both a bagel and a coffee|returns true if coffeedeal available|
+|basket.cs|BuildReceipt()|so i can recieve a receipt|builds and return a reciept of the purchased items|
+
+
+
+
+1. 
+As a regular customer
+So I can justify the spendings for this shop,
+I'd like to have some sort of coffee bagel deal.
+
+2. 
+As a parent,
+So i can by bagel to the whole family
+I would like to be able to buy bundles of bagels for a discounted price.
+
+3.
+As a member of the public,
+So I can check my order,
+I would like to be able to recieve a receipt of my purchase
+
+4. 
+As an organised person,
+So I can organise my reciept,
+I would like a timestamp on the reciept
